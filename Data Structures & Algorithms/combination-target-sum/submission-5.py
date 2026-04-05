@@ -1,0 +1,18 @@
+class Solution:
+    def combinationSum(self, nums: List[int], target: int) -> List[List[int]]:
+        self.res = []
+
+        def dfs(i, combo, total):
+            if total == target:
+                self.res.append(combo.copy())
+                return
+            if total > target or i == len(nums):
+                return
+            
+            combo.append(nums[i])
+            dfs(i, combo, total + nums[i])
+            combo.pop()
+            dfs(i+1, combo, total)
+        
+        dfs(0, [], 0)
+        return self.res
