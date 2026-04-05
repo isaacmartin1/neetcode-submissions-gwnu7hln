@@ -1,8 +1,5 @@
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
-        if amount == 0:
-            return 0
-
         opts = [float('inf')] * (amount + 1)
         opts[0] = 0
         for a in range(0, amount + 1):
